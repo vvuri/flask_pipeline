@@ -1,14 +1,14 @@
 from flask import Flask
 from markupsafe import escape
 from flask import request
+from logger_writer import log
 
 app = Flask(__name__)
-
 
 @app.route("/")
 def hello_world():
     username = request.cookies.get('username')
-    print(username)
+    log.info(username)
     return "<p>Hello, Flask!</p>"
 
 

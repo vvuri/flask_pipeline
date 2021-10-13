@@ -1,7 +1,7 @@
 # Simple API server
 # vvuri, 2021
 
-from app.hello import app
+from app.api_route import app
 
 def print_start():
     print('Run server on Flask')
