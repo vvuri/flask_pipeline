@@ -15,7 +15,14 @@ Simple APi project
 ```pip install pytest```
 8. create requirements.txt
 ```pip freeze > requirements.txt```
-9. d
+9. Run pytest with param: --no-header --no-summary -q
+10. Add code analyse
+```
+pip install flake8
+flake8 --help
+flake8 .\app\hello.py
+```
+11. d
 
 
 
