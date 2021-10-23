@@ -9,7 +9,7 @@ app = Flask(__name__)
 def hello_world():
     username = request.cookies.get('username')
     log.info(username)
-    return "<p>Hello, Flask!</p>"
+    return "<p>Hello, Flask with Debug!</p>"
 
 
 @app.route('/user/<username>')
