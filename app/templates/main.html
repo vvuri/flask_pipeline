@@ -14,7 +14,11 @@
 
 <h3>Message list</h3>
 {% for message in messages %}
-<div>{{ message.text }}&nbsp;<b>#{{ message.tag }}</b></div>
+<div>{{ message.text }}&nbsp;<b>
+    {% for tag in message.tags %}
+        #{{tag.text}}&nbsp
+    {% endfor%}
+</b></div>
 {% endfor %}
 </body>
 </html>

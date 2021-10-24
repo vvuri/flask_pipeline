@@ -1,13 +1,45 @@
 from flask import Flask, request, render_template, redirect, url_for
-from markupsafe import escape
 from logger_writer import log
-from collections import namedtuple
+from flask_sqlalchemy import SQLAlchemy
+import os
 
+PSQL_CONNECTION = os.environ.get('PSQL_CONNECTION', '')
 
 app = Flask(__name__)
+# 'postgresql+psycopg2://user:password@ip_adress:5432/db_name' - real name in system environment PSQL_CONNECTION
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://'+PSQL_CONNECTION
+# app.config['SQLALCHEMY_BINDS'] = {'schema': 'test_flask'}
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-Message = namedtuple('Message', 'text tag')
-messages = []
+
+class Message(db.Model):
+    # __table_args__ = {'schema': 'test_flask'}
+
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(1024), nullable=False)
+
+    def __init__(self, text, tags):
+        self.text = text.strip()
+        self.tags = [
+            Tag(text=tag.strip()) for tag in tags.split(',')
+        ]
+
+
+class Tag(db.Model):
+    # __table_args__ = {'schema': 'test_flask'}
+
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(64), nullable=False)
+
+    message_id = db.Column(db.Integer, db.ForeignKey('message.id'), nullable=False)
+    message = db.relationship('Message', backref=db.backref('tags', lazy=True))
+
+
+# сразу создать таблицы при запуске - не для продакшена
+def create_database():
+    db.create_all()
+    db.session.commit()
 
 
 @app.route("/", methods=['GET'])
@@ -19,7 +51,7 @@ def hello_world():
 
 @app.route('/main/', methods=['GET'])
 def main():
-    return render_template("main.html", messages=messages)
+    return render_template("main.html", messages=Message.query.all())
 
 
 @app.route('/add_message', methods=['POST'])
@@ -27,21 +59,10 @@ def add_message():
     text = request.form['text']
     tag = request.form['tag']
 
-    messages.append(Message(text, tag))
+    db.session.add(Message(text, tag))
+    db.session.commit()
 
     return redirect(url_for('main'))
-
-
-# @app.route('/post/<int:post_id>')
-# def show_post(post_id):
-#     # show the post with the given id, the id is an integer
-#     return f'Post {post_id}'
-#
-#
-# @app.route('/path/<path:subpath>')
-# def show_subpath(subpath):
-#     # show the subpath after /path/
-#     return f'Subpath {escape(subpath)}'
 
 
 @app.route('/about')

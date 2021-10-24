@@ -50,3 +50,39 @@ manage.py compilemessages
 # restart wsgi
 touch project_name/wsgi.py
 ```
+
+For password:
+test.py
+```python
+from pit import Pit
+
+config = Pit.get('section-name', {'require': {
+    'username': 'DEFAULT STRING',
+    'password': 'DEFAULT STRING',
+    }})
+print(config)
+```
+Run:
+```bash
+$ python test.py
+{'password': 'my-password', 'username': 'my-name'}
+```
+~/.pit/default.yml:
+```yml
+section-name:
+  password: my-password
+  username: my-name
+```
+
+or use environments:
+fred.py
+```python
+import os
+password = os.environ.get('PASSWORD', '')
+print(password)
+```
+which can be run like
+```bash
+$ PASSWORD=password123 python fred.py
+-> password123
+```
