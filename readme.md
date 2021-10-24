@@ -25,4 +25,7 @@ flake8 .\app\hello.py
 11. d
 
 
-
+### Links
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
+- [Jinja2](https://jinja.palletsprojects.com/en/2.10.x/templates/|Jinja2)
+- [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
