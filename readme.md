@@ -26,10 +26,12 @@ flake8 .\app\hello.py
 12. Add module for SQL Alchemy ``` pip install psycopg2-binary ```
 13. psycopg2 didn't work on Python 3.10 -> go to 3.8
 14. In new Env ``` pip install -r requirements.txt ```
-
+15. ``` pip install flask-login```
+16. 
 
 ### Links
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
 - [Jinja2](https://jinja.palletsprojects.com/en/2.10.x/templates/|Jinja2)
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 - [DB connector SQL Alchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/)
+- [Flask login](https://flask-login.readthedocs.io/en/latest/)

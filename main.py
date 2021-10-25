@@ -1,7 +1,6 @@
 # Simple API server
 # vvuri, 2021
-
-from app.api_route import app, create_database
+from app.dao import create_database, app
 
 
 def print_start():
