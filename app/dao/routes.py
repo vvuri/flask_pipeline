@@ -33,9 +33,19 @@ def about():
     return 'The about page'
 
 
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':
-#         return do_the_login()
-#     else:
-#         return show_the_login_form()
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return do_the_login()
+    else:
+        return show_the_login_form()
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    pass
+
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    pass

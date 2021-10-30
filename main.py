@@ -10,4 +10,4 @@ def print_start():
 if __name__ == '__main__':
     print_start()
     create_database()
-    app.run()
+    app.run(debug=True)

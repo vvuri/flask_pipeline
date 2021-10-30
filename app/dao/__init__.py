@@ -11,9 +11,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://'+PSQL_CONNECTION
 # app.config['SQLALCHEMY_BINDS'] = {'schema': 'test_flask'}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# _dir = os.path.dirname(os.path.abspath(__file__))
-# app.template_folder = os.path.join(_dir, "templates")
-
 db = SQLAlchemy(app)
 
 from app.dao import models, routes

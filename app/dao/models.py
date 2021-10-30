@@ -1,4 +1,6 @@
-from app.dao import db
+from flask_login import UserMixin
+
+from app.dao import db, manager
 
 
 class Message(db.Model):
@@ -22,3 +24,14 @@ class Tag(db.Model):
 
     message_id = db.Column(db.Integer, db.ForeignKey('message.id'), nullable=False)
     message = db.relationship('Message', backref=db.backref('tags', lazy=True))
+
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String(128), nullabla=False, unique=True)
+    password = db.Column(db.String(255), nullabla=False)
+
+
+@manager.user_loader
+def load_user(user_id):
+    return User.query.filter_by(alternative_id=user_id).first()
