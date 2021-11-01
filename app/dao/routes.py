@@ -41,22 +41,19 @@ def about():
 def login_page():
     login = request.form.get("login")
     password = request.form.get("password")
-    print(login)
-    print(password)
+
     if login and password:
         user = User.query.filter_by(login=login).first()
-        print(user.password)
         if check_password_hash(user.password, password):
             login_user(user)
             # что бы избежать сразу переход пользователя на нужную страницу без авторизации
             next_page = request.args.get('next')
-            print(next_page)
             redirect(next_page)
         else:
             # сообщения которые можем использовать где-либо
             flash('Incorrect login or password')
     else:
-        #flash('Please fill login and password')
+        flash('Please fill login and password')
         return render_template("login.html")
 
 
@@ -92,6 +89,6 @@ def logout():
 @app.after_request
 def redirect_to_sign_in(response):
     if response.status_code == 401:
-        return redirect(url_for("login_page")+'?next='+request.url)
+        return redirect(url_for("login_page") + '?next=' + request.url)
 
     return response
