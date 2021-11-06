@@ -27,7 +27,15 @@ flake8 .\app\hello.py
 13. psycopg2 didn't work on Python 3.10 -> go to 3.8
 14. In new Env ``` pip install -r requirements.txt ```
 15. ``` pip install flask-login```
-16. 
+16. Swagger ``` pip install flask-restful-swagger ``` - don't work for me
+17. Swagger ```pip install flask-swagger``` - only json
+18. CORS ``` pip install -U flask-cors ``` + CORS(app) - it's all
+19. Swagger 
+``` 
+pip install flask-marshmallow 
+pip install flask-restplus
+```
+needed fix for 'werkzeug' 
 
 ### Links
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
@@ -35,3 +43,6 @@ flake8 .\app\hello.py
 - [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
 - [DB connector SQL Alchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/)
 - [Flask login](https://flask-login.readthedocs.io/en/latest/)
+- [CORS](https://flask-cors.readthedocs.io/en/latest/)
+- [Swagger]() 
+- [Flask-RESTPlus](https://flask-restplus.readthedocs.io/en/stable/)

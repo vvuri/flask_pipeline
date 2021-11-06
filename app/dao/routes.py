@@ -1,17 +1,32 @@
-from flask import request, render_template, redirect, url_for, flash
+from flask import request, render_template, redirect, url_for, flash, jsonify
 from flask_login import login_user, login_required, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
+from flask_restplus import fields, Resource
 
-from app.dao import app, db
+from app.dao import app, db, api
 from app.dao.models import Message, User
 from logger_writer import log
 
 
-@app.route("/", methods=['GET'])
-def hello_world():
+@app.route('/', methods=['GET'])
+def root_page():
     username = request.cookies.get('username')
     log.info(username)
     return render_template('index.html')
+
+
+@api.route("/get")
+class getdata(Resource):
+    def get(self):
+        username = request.cookies.get('username')
+        log.info(username)
+        return render_template('index.html')
+
+
+@api.route("/post")
+class postdata(Resource):
+    def post(self):
+        return {'message': 'working'}
 
 
 @app.route('/main/', methods=['GET'])

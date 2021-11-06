@@ -1,6 +1,6 @@
 from flask_login import UserMixin
 
-from app.dao import db, login_manager
+from app.dao import db, login_manager, ma
 
 
 class Message(db.Model):
@@ -34,6 +34,16 @@ class User(db.Model, UserMixin):
     # def __init__(self, login, password):
     #     self.login = login
     #     self.password = password
+
+
+# for Swagger
+class UserSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'login', 'password')
+
+
+user_schema = UserSchema()
+users_schema = UserSchema(many=True)
 
 
 @login_manager.user_loader
