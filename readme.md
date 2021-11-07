@@ -34,6 +34,7 @@ flake8 .\app\hello.py
 ``` 
 pip install flask-marshmallow 
 pip install flask-restplus
+pip install marshmallow-sqlalchemy
 ```
 needed fix for 'werkzeug' 
 

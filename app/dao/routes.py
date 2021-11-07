@@ -8,25 +8,26 @@ from app.dao.models import Message, User
 from logger_writer import log
 
 
+@api.route("/api/get_message/<int:id>")
+class GetData(Resource):
+    def get(self, element):
+        message = db.session.query(Message.id).all()   #Message.query().get().first()     # filter(Message.id == 1).first()
+        return message
+
+
+@api.route("/api/post")
+class PostData(Resource):
+    def post(self):
+        return {'message': User.query.count()}
+        #db.session.query().filter(Message.id == 1).first()
+        # {'message': User.query.count()} #session.query(User.login).filter(User.id == 1).first()}
+
+
 @app.route('/', methods=['GET'])
 def root_page():
     username = request.cookies.get('username')
     log.info(username)
     return render_template('index.html')
-
-
-@api.route("/get")
-class getdata(Resource):
-    def get(self):
-        username = request.cookies.get('username')
-        log.info(username)
-        return render_template('index.html')
-
-
-@api.route("/post")
-class postdata(Resource):
-    def post(self):
-        return {'message': 'working'}
 
 
 @app.route('/main/', methods=['GET'])
