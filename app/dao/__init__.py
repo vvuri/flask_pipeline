@@ -30,7 +30,12 @@ db = SQLAlchemy(app)
 
 # for Swagger
 ma = Marshmallow(app)
-api = Api(doc='/swagger/')
+api = Api(
+    doc='/swagger/',
+    title='API Flask pipeline project',
+    default='methods',
+    default_label=''
+)
 api.init_app(app)
 
 

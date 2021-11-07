@@ -1,6 +1,7 @@
 from flask_login import UserMixin
+from flask_restplus import fields
 
-from app.dao import db, login_manager, ma
+from app.dao import db, login_manager, ma, api
 
 
 class Message(db.Model):
@@ -14,6 +15,16 @@ class Message(db.Model):
         self.tags = [
             Tag(text=tag.strip()) for tag in tags.split(',')
         ]
+
+
+# for Swagger
+class MessageSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'text')
+
+
+message_schema = MessageSchema()
+messages_schema = MessageSchema(many=True)
 
 
 class Tag(db.Model):
@@ -31,9 +42,9 @@ class User(db.Model, UserMixin):
     login = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
 
-    # def __init__(self, login, password):
-    #     self.login = login
-    #     self.password = password
+    def __init__(self, login, password):
+        self.login = login
+        self.password = password
 
 
 # for Swagger
@@ -41,6 +52,12 @@ class UserSchema(ma.Schema):
     class Meta:
         fields = ('id', 'login', 'password')
 
+
+# dop param for decorator  @api.expect('model')
+model = api.model(model={
+    'login': fields.String('Enter login'),
+    'password': fields.String('Enter password')
+})
 
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)

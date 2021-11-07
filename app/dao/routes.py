@@ -4,23 +4,55 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_restplus import fields, Resource
 
 from app.dao import app, db, api
-from app.dao.models import Message, User
+from app.dao.models import Message, User, users_schema, message_schema
 from logger_writer import log
 
 
 @api.route("/api/get_message/<int:id>")
-class GetData(Resource):
-    def get(self, element):
-        message = db.session.query(Message.id).all()   #Message.query().get().first()     # filter(Message.id == 1).first()
-        return message
+class GetMessage(Resource):
+    def get(self, id):
+        data = Message.query.get(id)
+        return jsonify(message_schema(data))
 
 
-@api.route("/api/post")
-class PostData(Resource):
+@api.route("/api/get_users")
+class GetUser(Resource):
+    def get(self):
+        data = User.query.all()
+        return jsonify(users_schema.dump(data))
+
+
+@api.route("/api/put_user/<int:id>")
+class AddUser(Resource):
+    @api.expect('model')
+    def put(self, id):
+        user = User.query.get(id)
+        user.login = request.json['login']
+        user.password = request.json['password']
+        db.session.commit()
+        return {'message': 'user added'}
+
+
+@api.route("/api/post_user")
+class PostUser(Resource):
+    @api.expect('model')
     def post(self):
-        return {'message': User.query.count()}
+        user = User(login=request.json['login'], password=request.json['password'])
+        db.session.add(user)
+        db.session.commit()
+        return {'message': 'Success'}
+        # {'message': User.query.count()}
         #db.session.query().filter(Message.id == 1).first()
         # {'message': User.query.count()} #session.query(User.login).filter(User.id == 1).first()}
+
+
+@api.route("/api/delete_user/<int:id>")
+class DeleteUser(Resource):
+    def delete(self,id):
+        user = User.query.get(id)
+        db.session.delete(user)
+        db.session.commit()
+        return {'message': 'user deleted'}
 
 
 @app.route('/', methods=['GET'])
