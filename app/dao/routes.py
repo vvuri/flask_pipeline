@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from flask_restplus import fields, Resource
 
 from app.dao import app, db, api
-from app.dao.models import Message, User, users_schema, message_schema
+from app.dao.models import Message, User, users_schema, message_schema, model
 from logger_writer import log
 
 
@@ -24,7 +24,7 @@ class GetUser(Resource):
 
 @api.route("/api/put_user/<int:id>")
 class AddUser(Resource):
-    @api.expect('model')
+    @api.expect(model)
     def put(self, id):
         user = User.query.get(id)
         user.login = request.json['login']
@@ -35,7 +35,7 @@ class AddUser(Resource):
 
 @api.route("/api/post_user")
 class PostUser(Resource):
-    @api.expect('model')
+    @api.expect(model)
     def post(self):
         user = User(login=request.json['login'], password=request.json['password'])
         db.session.add(user)

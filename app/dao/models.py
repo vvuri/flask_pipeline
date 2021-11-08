@@ -54,7 +54,7 @@ class UserSchema(ma.Schema):
 
 
 # dop param for decorator  @api.expect('model')
-model = api.model(model={
+model = api.model('Resource', {
     'login': fields.String('Enter login'),
     'password': fields.String('Enter password')
 })
