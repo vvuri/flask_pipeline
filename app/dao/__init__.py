@@ -1,13 +1,5 @@
 import os
-
-# fix error  'cached_property' from 'werkzeug'
-import werkzeug
-from flask.scaffold import _endpoint_from_view_func
-from werkzeug.utils import cached_property
-import flask
-flask.helpers._endpoint_from_view_func = _endpoint_from_view_func
-werkzeug.cached_property = cached_property
-
+import app.dao._swagger_fix
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
@@ -38,6 +30,12 @@ api = Api(
 )
 api.init_app(app)
 
+root = Api(
+    doc='/',
+    default='root'
+)
+# root.init_app(app)
+
 
 # сразу создать таблицы при запуске - не для продакшена
 def create_database():
@@ -45,4 +43,4 @@ def create_database():
     db.session.commit()
 
 
-from app.dao import models, routes
+from app.dao import models, routes, _swagger_fix
