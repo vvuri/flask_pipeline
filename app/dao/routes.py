@@ -3,7 +3,7 @@ from flask_login import login_user, login_required, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_restplus import fields, Resource
 
-from app.dao import app, db, api, root
+from app.dao import app, db, api
 from app.dao.models import Message, User, users_schema, message_schema, model
 from logger_writer import log
 
@@ -55,11 +55,13 @@ class DeleteUser(Resource):
         return {'message': 'user deleted'}
 
 
-@app.route('/', methods=['GET'])
-def root_page():
-    username = request.cookies.get('username')
-    log.info(username)
-    return render_template('index.html')
+@api.route("/", doc=False)
+# @app.route('/', methods=['GET'])
+class RootPage(Resource):
+    def get(self):
+        username = request.cookies.get('username')
+        log.info(username)
+        return render_template('index.html')
 
 
 @app.route('/main/', methods=['GET'])

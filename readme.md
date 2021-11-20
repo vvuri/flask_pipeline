@@ -37,6 +37,17 @@ pip install flask-restplus
 pip install marshmallow-sqlalchemy
 ```
 needed fix for 'werkzeug' 
+20. Add google sheets support 
+```pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib```
+21. Go to 'https://console.cloud.google.com/' -> API and services -> Credentials -> Create Credentials 
+22. 'Google Sheets API' -> Enable ->  
+23. Alternative - FastAPI 
+```
+pip install fastapi
+pip install "uvicorn[standard]"
+```
+24. Run server ```$ uvicorn main:app```
+
 
 ### Links
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/quickstart/)

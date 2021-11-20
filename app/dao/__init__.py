@@ -5,7 +5,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
-from flask_restplus import Api
+from flask_restplus import Api, Namespace
 
 
 PSQL_CONNECTION = os.environ.get('PSQL_CONNECTION', '')
@@ -30,11 +30,8 @@ api = Api(
 )
 api.init_app(app)
 
-root = Api(
-    doc='/',
-    default='root'
-)
-# root.init_app(app)
+# - root = Namespace("Resources")
+# - api.add_namespace(root)
 
 
 # сразу создать таблицы при запуске - не для продакшена
