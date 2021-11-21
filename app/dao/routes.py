@@ -1,67 +1,17 @@
 from flask import request, render_template, redirect, url_for, flash, jsonify
 from flask_login import login_user, login_required, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_restplus import fields, Resource
 
-from app.dao import app, db, api
-from app.dao.models import Message, User, users_schema, message_schema, model
+from app.dao import app, db
+from app.dao.models import Message, User
 from logger_writer import log
 
 
-@api.route("/api/get_message/<int:id>")
-class GetMessage(Resource):
-    def get(self, id):
-        data = Message.query.get(id)
-        return jsonify(message_schema(data))
-
-
-@api.route("/api/get_users")
-class GetUser(Resource):
-    def get(self):
-        data = User.query.all()
-        return jsonify(users_schema.dump(data))
-
-
-@api.route("/api/put_user/<int:id>")
-class AddUser(Resource):
-    @api.expect(model)
-    def put(self, id):
-        user = User.query.get(id)
-        user.login = request.json['login']
-        user.password = request.json['password']
-        db.session.commit()
-        return {'message': 'user added'}
-
-
-@api.route("/api/post_user")
-class PostUser(Resource):
-    @api.expect(model)
-    def post(self):
-        user = User(login=request.json['login'], password=request.json['password'])
-        db.session.add(user)
-        db.session.commit()
-        return {'message': 'Success'}
-        # {'message': User.query.count()}
-        #db.session.query().filter(Message.id == 1).first()
-        # {'message': User.query.count()} #session.query(User.login).filter(User.id == 1).first()}
-
-
-@api.route("/api/delete_user/<int:id>")
-class DeleteUser(Resource):
-    def delete(self,id):
-        user = User.query.get(id)
-        db.session.delete(user)
-        db.session.commit()
-        return {'message': 'user deleted'}
-
-
-@api.route("/", doc=False)
-# @app.route('/', methods=['GET'])
-class RootPage(Resource):
-    def get(self):
-        username = request.cookies.get('username')
-        log.info(username)
-        return render_template('index.html')
+@app.route('/', methods=['GET'])
+def root_page(self):
+    username = request.cookies.get('username')
+    log.info(username)
+    return render_template('index.html')
 
 
 @app.route('/main/', methods=['GET'])

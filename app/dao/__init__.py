@@ -1,12 +1,8 @@
 import os
-import app.dao._swagger_fix
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from flask_marshmallow import Marshmallow
-from flask_restplus import Api, Namespace
-
 
 PSQL_CONNECTION = os.environ.get('PSQL_CONNECTION', '')
 
@@ -20,19 +16,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
 
-# for Swagger
-ma = Marshmallow(app)
-api = Api(
-    doc='/swagger/',
-    title='API Flask pipeline project',
-    default='methods',
-    default_label=''
-)
-api.init_app(app)
-
-# - root = Namespace("Resources")
-# - api.add_namespace(root)
-
 
 # сразу создать таблицы при запуске - не для продакшена
 def create_database():
@@ -40,4 +23,4 @@ def create_database():
     db.session.commit()
 
 
-from app.dao import models, routes, _swagger_fix
+from app.dao import models, routes
