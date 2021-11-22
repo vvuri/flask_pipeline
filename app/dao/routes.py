@@ -8,7 +8,7 @@ from logger_writer import log
 
 
 @app.route('/', methods=['GET'])
-def root_page(self):
+def root_page():
     username = request.cookies.get('username')
     log.info(username)
     return render_template('index.html')
@@ -48,6 +48,8 @@ def login_page():
             login_user(user)
             # что бы избежать сразу переход пользователя на нужную страницу без авторизации
             next_page = request.args.get('next')
+            # no nexr_page
+            log.info(next_page)
             redirect(next_page)
         else:
             # сообщения которые можем использовать где-либо
