@@ -2,13 +2,32 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi import HTTPException
 from typing import Optional
+from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import PlainTextResponse
+
 
 app = FastAPI(title="Random phrase")
 
+# опционально; требуется при обслуживании статических файлов
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+# опционально; требуется при обслуживании страницы через шаблонизатор
+templates = Jinja2Templates(directory="templates")
+
+
+# зависит от варианта использования
+class Item(BaseModel):
+    language = 'english'
+
+
+# @app.get("/")
+# def read_root():
+#     return {"Hello": "World"}
+@app.get("/", response_class=PlainTextResponse)  # По умолчанию возвращается ответ в формате JSON, тут меняем
+async def hello():         # async не обязателен но лучше сразу так
+    return "Hello World!"
 
 
 @app.get("/items/{item_id}")

@@ -46,8 +46,9 @@ needed fix for 'werkzeug'
 pip install fastapi
 pip install "uvicorn[standard]"
 ```
-24. Run server ```$ uvicorn main:app```
-
+24. Run server ```$ uvicorn main:app``` - ASGI (Asynchronous Server Gateway Interface)
+25. Swagger: http://127.0.0.1:8000/docs
+26. ReDoc: http://127.0.0.1:8000/redoc
 
 ### Links
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
