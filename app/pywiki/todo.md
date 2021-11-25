@@ -16,7 +16,7 @@
 - SQLAlchemy
 - Terraform for deployment
 - [Bootstrap5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) 
-- Linter: 
+- Linter: flake8
 - PyTest
 
 #### Steps
@@ -25,4 +25,7 @@
 3. Debug mode ```uvicorn app.pywiki.app:app --host 0.0.0.0 --reload --port 80 --debug```
 4. Templates ```pip install jinja2```
 5. Swagger ```http://127.0.0.1/docs```
-6. 
+6. Linter ```flake8 .\app\pywiki\```
+7. Color schema from [Color Hunt](https://colorhunt.co/palette/c85c5cf9975dfbd148b2ea70)
+8. Color: #C85C5C #F9975D #FBD148 #B2EA70
+9. #F0E5CF #F7F6F2 #C8C6C6 #4B6587
