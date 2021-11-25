@@ -26,6 +26,6 @@
 4. Templates ```pip install jinja2```
 5. Swagger ```http://127.0.0.1/docs```
 6. Linter ```flake8 .\app\pywiki\```
-7. Color schema from [Color Hunt](https://colorhunt.co/palette/c85c5cf9975dfbd148b2ea70)
-8. Color: #C85C5C #F9975D #FBD148 #B2EA70
-9. #F0E5CF #F7F6F2 #C8C6C6 #4B6587
+7. Color schema from [Color Hunt](https://colorhunt.co/palette/009dae71dfe7c2fff9ffe652)
+8. Color: #009DAE #71DFE7 #C2FFF9 #FFE652
+9. 
