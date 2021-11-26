@@ -28,4 +28,4 @@
 6. Linter ```flake8 .\app\pywiki\```
 7. Color schema from [Color Hunt](https://colorhunt.co/palette/009dae71dfe7c2fff9ffe652)
 8. Color: #009DAE #71DFE7 #C2FFF9 #FFE652
-9. 
+9. Img [Logo](https://www.designevo.com/apps/logo/?name=abstract-human-face-and-vr-glasses)
