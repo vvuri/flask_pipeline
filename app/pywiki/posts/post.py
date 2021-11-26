@@ -7,5 +7,5 @@ templates = Jinja2Templates(directory=["posts/templates", "templates"])
 
 
 @router.get('/posts', response_class=HTMLResponse)
-def list_users(request: Request):
+def list_post(request: Request):
     return templates.TemplateResponse("posts.html", {"request": request})
