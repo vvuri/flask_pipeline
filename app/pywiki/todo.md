@@ -29,7 +29,8 @@
 7. Color schema from [Color Hunt](https://colorhunt.co/palette/009dae71dfe7c2fff9ffe652)
 8. Color: #009DAE #71DFE7 #C2FFF9 #FFE652
 9. Img [Logo](https://www.designevo.com/apps/logo/?name=abstract-human-face-and-vr-glasses)
-
+10. Download SQLite3 [bin Windows](https://www.sqlite.org/) unpack and add Path
+11. Download [SQLiteStudio](https://sqlitestudio.pl/)
 
 #### ToDo
 - favicon
