@@ -7,3 +7,6 @@ app = FastAPI(title="Python WiKi blog")
 templates = Jinja2Templates(directory="templates")
 
 app.include_router(post.router)
+
+# SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
+# db = SQLAlchemy(app)
