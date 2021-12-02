@@ -31,6 +31,9 @@
 9. Img [Logo](https://www.designevo.com/apps/logo/?name=abstract-human-face-and-vr-glasses)
 10. Download SQLite3 [bin Windows](https://www.sqlite.org/) unpack and add Path
 11. Download [SQLiteStudio](https://sqlitestudio.pl/)
+12. Add Alembic DB Migration ```pip install alembic```
+13. Init Alembic ```app\pywiki> alembic init alembic```
+14. Create first migration ```alembic revision --message="Initial" --autogenerate```
 
 #### ToDo
 - favicon
