@@ -33,9 +33,10 @@
 11. Download [SQLiteStudio](https://sqlitestudio.pl/)
 12. Add Alembic DB Migration ```pip install alembic```
 13. Init Alembic ```app\pywiki> alembic init alembic```
-14. Configure alembic.ini - sqlalchemy.url
-15. Configure alembic/env.py - target_metadata
+14. Configure alembic.ini -> sqlalchemy.url
+15. Configure alembic/env.py -> target_metadata
 16. Create first migration ```alembic revision --message="Initial" --autogenerate```
+17. Create SQL script ```alembic upgrade 995153f9b9f3 --sql```
 
 
 #### ToDo
