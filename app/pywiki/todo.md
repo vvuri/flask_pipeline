@@ -38,7 +38,12 @@
 16. Create first migration ```alembic revision --message="Initial" --autogenerate```
 17. Create SQL script ```alembic upgrade 995153f9b9f3 --sql```
 18. Run migration ```alembic upgrade head``` -> Running upgrade  -> 995153f9b9f3, Initial
-19. 
+19. New migration ```alembic revision --message="Slugify" --autogenerate```
+20. Run new migration ```alembic upgrade cc92188f32a1``` - slugify 
+21. Hook for SQLite only in env.py  ```render_as_batch=True``` but no work for me  
+22. History migration ```alembic history ```
+23. Rollback to base DB ```alembic downgrade base```
+
 
 #### ToDo
 - favicon

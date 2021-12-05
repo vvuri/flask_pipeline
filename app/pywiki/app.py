@@ -12,3 +12,4 @@ templates = Jinja2Templates(directory="templates")
 app.include_router(post.router)
 
 models.Base.metadata.create_all(bind=engine)
+
