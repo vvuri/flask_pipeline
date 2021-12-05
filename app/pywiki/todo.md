@@ -37,7 +37,8 @@
 15. Configure alembic/env.py -> target_metadata
 16. Create first migration ```alembic revision --message="Initial" --autogenerate```
 17. Create SQL script ```alembic upgrade 995153f9b9f3 --sql```
-
+18. Run migration ```alembic upgrade head``` -> Running upgrade  -> 995153f9b9f3, Initial
+19. 
 
 #### ToDo
 - favicon

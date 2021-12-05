@@ -38,7 +38,7 @@ class Post(Base):
 
     def __init__(self, *args, **kwargs):
         super(Post, self).__init__(*args, **kwargs)
-        self.slug = generate_slug()
+        self.generate_slug()
 
     def generate_slug(self):
         if self.title:
