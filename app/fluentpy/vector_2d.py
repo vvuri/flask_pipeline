@@ -1,3 +1,5 @@
+#  pytest .\vector_2d.py
+
 from math import hypot
 
 
@@ -31,6 +33,12 @@ class Vector:
 
 def test_add_two_vectors():
     assert hash(Vector(2, 3) + Vector(4, 1)) == hash(Vector(6, 4))
+    assert hash(Vector(2, 3) + Vector(4, 1)) == hash(Vector(4, 6))
+
+
+def test_as_string():
+    assert repr(Vector(2, 3) + Vector(4, 1)) == repr(Vector(6, 4))
+    assert repr(Vector(2, 3) + Vector(4, 1)) != repr(Vector(4, 6))
 
 
 def test_zero_is_false():
@@ -48,5 +56,3 @@ def test_scaling():
 
 def test_hash():
     assert hash(Vector(1, 2)) == hash(Vector(2, 1))
-
-
