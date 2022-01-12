@@ -1,6 +1,6 @@
 # Work with collections
 # Run test:
-# $ pytest.\collection_card.py
+# $ pytest .\collection_card.py
 
 import collections
 import pytest
@@ -26,3 +26,10 @@ class FrenchDesk:
 def test_one_card():
     beet_card = Card('7', 'diamonds')
     print(beet_card)
+
+
+def test_list_comp():
+    symbol = '$€®¤'
+    codes = [ord(x) for x in symbol]
+    assert codes == [36, 8364, 174, 164]
+
