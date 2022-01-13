@@ -7,6 +7,8 @@
 - Create project:
   - ```$ django-admin startproject django_first```
   - ```$ cd django_first```
+- Add application in project
+  - ```$ python .\manage.py startapp horoscope```
 - Run dev server: 
   - ```$ python .\manage.py runserver```
   - Starting development server at http://127.0.0.1:8000/
