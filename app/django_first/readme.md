@@ -13,4 +13,5 @@
   - ```$ python .\manage.py runserver```
   - Starting development server at http://127.0.0.1:8000/
 - [Django documentation](https://docs.djangoproject.com/en/4.0/)
+- ConEmu good console with multitab
 - 

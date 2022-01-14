@@ -20,6 +20,5 @@ from horoscope import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('horoscope/leo/', views.leo),
-    path('horoscope/taurus/', views.taurus)
+    path('horoscope/<sign>/', views.zodiac_sign)
 ]
