@@ -16,4 +16,9 @@ def zodiac_sign(request, sign: str):
 
 
 def zodiac_sign_by_number(request, sign: int):
-    return HttpResponse(f"Route with int type: {sign}")
+    text_page = list(zodiac_dict)
+    if sign > len(text_page) or sign == 0:
+        return HttpResponse(f"Route with int type: {sign}")
+    name_zodiac = text_page[sign-1]
+    return HttpResponse(name_zodiac)
+
