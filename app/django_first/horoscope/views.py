@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 zodiac_dict = {
     'leo': 'Page leo!',
@@ -14,8 +15,10 @@ def index(request):
 
 def zodiac_sign(request, sign: str):
     text_page = zodiac_dict.get(sign, None)
+    data = {'inner': text_page, }
+    render_page = render_to_string('horoscope/info.html', context=data)
     if text_page:
-        return HttpResponse(text_page)
+        return HttpResponse(render_page)
     else:
         return HttpResponseNotFound(f"Zodiac page - 404 for {sign}")
 
