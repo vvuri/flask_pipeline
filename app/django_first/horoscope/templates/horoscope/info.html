@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Info</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'horoscope/css/info.css' %}">
 </head>
 <body>
-<b>{{ inner }}</b>
+{% load static %}
+<img src="{% static 'horoscope/img/leo-horoscope.jpg' %}" alt="My image">
+<br>
+<b>{{ inner }}</b> - <h1><i class="icon-leo"></i></h1>
 </body>
 </html>

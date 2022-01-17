@@ -1,0 +1,45 @@
+html {
+    line-height:1.5;
+}
+
+body {
+    margin:0;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    margin:0
+}
+
+a {
+    background-color:transparent;
+    text-decoration:none
+}
+
+i {
+    font-style:normal;
+    color:purple;
+    font-weight:bold;
+    font-size:24px;
+    line-height:24px;
+}
+
+.icon-utensils:before{content:""}
+.icon-aquarius:before{content:""}
+.icon-aries:before{content:""}
+.icon-cancer:before{content:""}
+.icon-capricorn:before{content:""}
+.icon-gemini:before{content:""}
+
+.icon-leo:before{
+    content:"\264C"
+}
+
+.icon-libra:before{content:""}
+.icon-pisces:before{content:""}
+.icon-sagittarius:before{content:""}
+.icon-scorpio:before{content:""}
+.icon-taurus:before{content:""}
+.icon-virgo:before{content:""}
+.icon-double-heart:before{content:""}
+.icon-heart-arrow:before{content:""}
+
