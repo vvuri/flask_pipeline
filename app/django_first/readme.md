@@ -15,4 +15,13 @@
 - [Django documentation](https://docs.djangoproject.com/en/4.0/)
 - [Doc Rus](https://django.fun/docs/django/ru/4.0/)
 - ConEmu good console with multitab
-- 
+- Add templates folder in horoscope
+- Add app to settings.py INSTALLED_APP
+- Add second application in project
+  - ```$ python .\manage.py startapp news```
+  - Add app to settings.py INSTALLED_APP
+- Create migration script:
+  - ```$ python .\manage.py makemigrations```
+  - ```news\migrations\0001_initial.py```
+- Run migration:
+  - ```$ python .\manage.py migrate```
