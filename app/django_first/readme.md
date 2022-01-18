@@ -25,3 +25,13 @@
   - ```news\migrations\0001_initial.py```
 - Run migration:
   - ```$ python .\manage.py migrate```
+- For debug SQL:
+  - ```$ python manage.py shell```
+  - ```>>> from news.models import Movies```
+  - ```>>> a = Movies(name="Film1", rating = 10)```
+  - ```>>> a.save()``` save to DB
+  - ```>>> Movies.objects.all()[1].name``` select from table to collection
+  - ```>>> Movies.objects.get(id=1).name``` select by id
+- Plugin for show SQL
+  - ```$ pip install django-extensions```
+  - ```$ python manage.py shell_plus --print-sql``` Not work for me
