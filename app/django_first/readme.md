@@ -35,3 +35,8 @@
 - Plugin for show SQL
   - ```$ pip install django-extensions```
   - ```$ python manage.py shell_plus --print-sql``` Not work for me
+- Add Admin panel - for control DB data
+  - ```$ python manage.py createsuperuser```
+  - user: admin, password: admin
+  - http://127.0.0.1:8000/admin/
+  - add support DB Movies: ```admin.site.register(Movies)``` in admin.py
