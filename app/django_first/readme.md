@@ -40,3 +40,6 @@
   - user: admin, password: admin
   - http://127.0.0.1:8000/admin/
   - add support DB Movies: ```admin.site.register(Movies)``` in admin.py
+- Add templates for news
+  - http://127.0.0.1:8000/movies/
+  - 
