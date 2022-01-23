@@ -14,3 +14,6 @@ class News(models.Model):
     update_at = models.DateTimeField(auto_now=True)
     photo = models.ImageField(blank=True, upload_to='photo/%Y/%m')
     is_publish = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title

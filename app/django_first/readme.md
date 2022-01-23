@@ -31,9 +31,17 @@
   - ```$ python manage.py shell```
   - ```>>> from news.models import Movies```
   - ```>>> a = Movies(name="Film1", rating = 10)```
-  - ```>>> a.save()``` save to DB
+  - ```>>> a.save()``` save to DB or update
+  - ```>>> a.delete()``` return record 
+  - ```>>> Movies.object.create(name="Film1", rating = 10) ``` alternative method with save
+  - ```>>> Movies.objects.all()``` -> use \_\_str__ method
   - ```>>> Movies.objects.all()[1].name``` select from table to collection
   - ```>>> Movies.objects.get(id=1).name``` select by id
+  - ```>>> from django.db import connection```
+  - ```>>> connection.queries``` show SQL query
+  - ```>>> Movies.objects.filter(name='Film')``` -> LIKE
+  - object.order_by('field') or '-field'
+  - exclude(name='5') - without this
 - Plugin for show SQL
   - ```$ pip install django-extensions```
   - ```$ python manage.py shell_plus --print-sql``` Not work for me
