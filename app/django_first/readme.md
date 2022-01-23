@@ -22,7 +22,9 @@
   - Add app to settings.py INSTALLED_APP
 - Create migration script:
   - ```$ python .\manage.py makemigrations```
-  - ```news\migrations\0001_initial.py```
+  - ```news\migrations\0001_initial.py``` 
+  - Show SQL command:
+  - ```$ python manage.py sqlmigrate news 0003``` -> "CREATE TABLE news_news ..." 
 - Run migration:
   - ```$ python .\manage.py migrate```
 - For debug SQL:
@@ -44,6 +46,7 @@
   - http://127.0.0.1:8000/movies/
 - for file upload:
   - ```$ pip install pillow``` 
+
 
 
 ### Deploy on VDS
