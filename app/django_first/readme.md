@@ -54,6 +54,11 @@
   - http://127.0.0.1:8000/movies/
 - for file upload:
   - ```$ pip install pillow``` 
+- Add React frontend
+  - Update nodejs https://nodejs.org/en/download/ -> v16.13.2
+  - ```$ cd .\app\django_first\``` 
+  - ```$ npx create-react-app frontend```
+  - Run app: ```$ npm start``` -> http://localhost:3000/
 
 
 
