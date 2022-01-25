@@ -69,6 +69,10 @@
 - ```cd .\app\django_first\```  
 - ```npm start```
 
+### GitHub Actions
+- create dir .github/workflow
+- add test.yml with scenario linting
+
 ### Deploy on VDS
 - SSH connect 
 - sudo apt update
