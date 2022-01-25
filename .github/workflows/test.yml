@@ -1,7 +1,7 @@
 name: Test Python/Node CI
 
 on:
-  create:
+  pull_request:
   push:
     branches:
       - master
