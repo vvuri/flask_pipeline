@@ -1,12 +1,13 @@
 name: Test Python/Node CI
 
 on:
+  create:
   push:
     branches:
       - master
 
 jobs:
-  build:
+  lint-node:
     runs-on: ubuntu-latest
     name: Node 12 eslint run
     steps:
@@ -22,7 +23,7 @@ jobs:
         with:
           path: "app/django_first/frontend"
 
-  ci-tests:
+  python-lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
