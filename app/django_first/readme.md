@@ -59,8 +59,15 @@
   - ```$ cd .\app\django_first\``` 
   - ```$ npx create-react-app frontend```
   - Run app: ```$ npm start``` -> http://localhost:3000/
+  - Add Bootstrap 4
+- Add CORS
+  - ```pip install djangorestframework django-cors-headers```
+  - configure settings.py
 
-
+### Developer env
+- ```python .\manage.py runserver```
+- ```cd .\app\django_first\```  
+- ```npm start```
 
 ### Deploy on VDS
 - SSH connect 
