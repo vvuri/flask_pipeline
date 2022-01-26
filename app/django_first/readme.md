@@ -72,7 +72,7 @@
 ### GitHub Actions
 - create dir .github/workflow
 - add test.yml with scenario linting
-- run only when code changed
+- run only when code changed without yml change
 
 ### Deploy on VDS
 - SSH connect 
