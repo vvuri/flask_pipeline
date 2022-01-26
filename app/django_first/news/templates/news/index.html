@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{context.title}}</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<h1>{{context.title}}</h1>
-{% for item in context.news %}
-    <h2>title: {{item.title}}</h2><br>
+<h1>{{ context.title }}</h1>
+{% for item in news %}
+    <h2>{{item.title}}</h2><br>
     content: {{item.content}}<br>
     photo: {{item.photo}}<br>
     {{item.update_at|date:"Y-m-d"}}<br><hr>
