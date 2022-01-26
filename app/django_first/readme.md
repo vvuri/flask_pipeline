@@ -64,6 +64,7 @@
   - ```pip install djangorestframework django-cors-headers```
   - configure settings.py
 
+
 ### Developer env
 - ```python .\manage.py runserver```
 - ```cd .\app\django_first\```  
