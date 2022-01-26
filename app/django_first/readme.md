@@ -78,7 +78,7 @@
 - SSH connect 
 - sudo apt update
 - sudo apt install ...
-- 
+
 
 
 
