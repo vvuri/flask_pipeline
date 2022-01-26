@@ -1,5 +1,4 @@
-name: Test Python/Node CI
-
+name: Test
 on:
   pull_request:
   push:
