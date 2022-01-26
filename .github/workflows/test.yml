@@ -1,12 +1,12 @@
 name: Test
 
-on: [push]
-#  push:
-#    branches:
-#      - master
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  Test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,49 +16,48 @@ jobs:
       - name: Hello
         run: echo "Hello, GitHub Actions!"
 
-#jobs:
-#  lint-node:
-#    runs-on: ubuntu-latest
-#    name: Node 16 eslint run
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Setup node
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 16
-#      - name: Install eslint
-#        run: npm install eslint
-#      - name: Lint
-#        run: make lint
-#        with:
-#          path: "app/django_first/frontend"
-#
-#  python-lint:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        python-version: ["3.8", "3.9"]
-#    name: Linux CI
-#    steps:
-#      - name: Check out source repository
-#        uses: actions/checkout@v2
-#      - name: Set up Python ${{ matrix.python-version }} environment
-#        uses: actions/setup-python@v1
-#        with:
-#          python-version: ${{ matrix.python-version }}
-#      - name: Python environment report
-#        run: python -c "import sys; print(sys.version)"
-#      - name: Run ${{ matrix.python-version }} platform tests (default)
-#        uses: py-actions/flake8@master
-#        with:
-#          path: "tests/test-default.py" # have to restrict because there are other tests with flake8 fails
-#      - name: Run ${{ matrix.python-version }} platform tests (with args)
-#        uses: py-actions/flake8@master
-#        with:
-#          update-pip: "true"
-#          ignore: "F401"
-#          exclude: "app/django_first/frontend"
-#          max-line-length: "100"
-#          args: "--quiet"
-#          path: "app/django_first"
-#          flake8-version: "master"
+  lint-node:
+    runs-on: ubuntu-latest
+    name: Node 16 eslint run
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Install eslint
+        run: npm install eslint
+      - name: Lint
+        run: make lint
+        with:
+          path: "app/django_first/frontend"
+
+  python-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9"]
+    name: Linux CI
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }} environment
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Python environment report
+        run: python -c "import sys; print(sys.version)"
+      - name: Run ${{ matrix.python-version }} platform tests (default)
+        uses: py-actions/flake8@master
+        with:
+          path: "tests/test-default.py" # have to restrict because there are other tests with flake8 fails
+      - name: Run ${{ matrix.python-version }} platform tests (with args)
+        uses: py-actions/flake8@master
+        with:
+          update-pip: "true"
+          ignore: "F401"
+          exclude: "app/django_first/frontend"
+          max-line-length: "100"
+          args: "--quiet"
+          path: "app/django_first"
+          flake8-version: "master"
