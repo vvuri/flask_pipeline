@@ -72,6 +72,7 @@
 ### GitHub Actions
 - create dir .github/workflow
 - add test.yml with scenario linting
+- 
 
 ### Deploy on VDS
 - SSH connect 
