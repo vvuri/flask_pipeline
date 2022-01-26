@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{context.title}}</title>
+</head>
+<body>
+<h1>{{context.title}}</h1>
+{% for item in context.news %}
+    <h2>title: {{item.title}}</h2><br>
+    content: {{item.content}}<br>
+    photo: {{item.photo}}<br>
+    {{item.update_at|date:"Y-m-d"}}<br><hr>
+{% endfor %}
+</body>
+</html>

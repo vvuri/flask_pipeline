@@ -6,6 +6,7 @@ from news import views
 urlpatterns = [
     path('', views.index),
     # path('<int:sign>', views.movie_sign, name='movie-name')
+    path('movies', views.movie)
 ]
 
 if settings.DEBUG:
