@@ -80,6 +80,18 @@
 - sudo apt update
 - sudo apt install ...
 
-
+### SSL
+- self-signed certificate
+- OpenSSL 1.1.1f for create
+- ```$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt```
+- ```$ vim /etc/nginx/sites-available/default```
+  - listen 80; 
+  - server_name 195.234.208.54;  
+  - charset utf-8;
+  - listen 443 ssl http2; 
+  - listen [::]:443 ssl http2;
+  - ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+  - ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+- ```$ service nginx restart```
 
 

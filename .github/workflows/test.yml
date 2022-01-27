@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "app/django_first"
-      - "app/django_first/frontend"
+#    paths:
+#      - "app/django_first"
+#      - "app/django_first/frontend"
 
 jobs:
   test:
