@@ -14,14 +14,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Hello
         run: echo "Hello, GitHub Actions!"
 
   eslint:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
       - uses: actions/checkout@v1
+      - name: npm install
+        working-directory: ./app/django_first/frontend
+        run: npm i --ignore-scripts
       - uses: stefanoeb/eslint-action@1.0.2
         with:
           files: app/django_first/frontend/
