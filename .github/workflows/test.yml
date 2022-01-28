@@ -34,6 +34,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+          files: app/django_first/frontend/
       - name: Install Packages
         run: npm install
       - name: Lint Files
