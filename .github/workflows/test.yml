@@ -19,17 +19,25 @@ jobs:
 
   eslint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
+#    strategy:
+#      matrix:
+#        node-version: [16.x]
     steps:
-      - uses: actions/checkout@v1
-#      - name: npm install
-#        working-directory: ./app/django_first/frontend
-#        run: npm i --ignore-scripts
-      - uses: stefanoeb/eslint-action@1.0.2
+#      - uses: actions/checkout@v1
+##      - name: npm install
+##        working-directory: ./app/django_first/frontend
+##        run: npm i --ignore-scripts
+#      - uses: stefanoeb/eslint-action@1.0.2
+#        with:
+#          files: app/django_first/frontend/
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          files: app/django_first/frontend/
+          node-version: '16.x'
+      - name: Install Packages
+        run: npm install
+      - name: Lint Files
+        run: npm run lint
 
 #  lint-node:
 #    runs-on: ubuntu-latest
