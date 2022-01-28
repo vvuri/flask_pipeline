@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-#    paths:
-#      - "app/django_first"
-#      - "app/django_first/frontend"
 
 jobs:
   test:
@@ -19,17 +16,7 @@ jobs:
 
   eslint:
     runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        node-version: [16.x]
     steps:
-#      - uses: actions/checkout@v1
-##      - name: npm install
-##        working-directory: ./app/django_first/frontend
-##        run: npm i --ignore-scripts
-#      - uses: stefanoeb/eslint-action@1.0.2
-#        with:
-#          files: app/django_first/frontend/
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -42,22 +29,29 @@ jobs:
         working-directory: ./app/django_first/frontend
         run: npm run lint
 
-#  lint-node:
-#    runs-on: ubuntu-latest
-#    name: Node 16 eslint run
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Setup node
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 16
-#      - name: Install eslint
-#        run: npm install eslint
-#      - name: Lint
-#        run: make lint
+  python-lint:
+    name: Python Django linter
+    runs-on: ubuntu-latest
 
-#  python-lint:
-#    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Python dependencies
+        run: pip install black flake8
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          files: app/django_first/
+          black: true
+          flake8: true
+
 #    strategy:
 #      matrix:
 #        python-version: ["3.8", "3.9"]
