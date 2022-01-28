@@ -36,8 +36,10 @@ jobs:
           node-version: '16.x'
           files: app/django_first/frontend/
       - name: Install Packages
+        working-directory: ./app/django_first/frontend
         run: npm install
       - name: Lint Files
+        working-directory: ./app/django_first/frontend
         run: npm run lint
 
 #  lint-node:
