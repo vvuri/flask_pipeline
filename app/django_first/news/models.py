@@ -14,9 +14,9 @@ class News(models.Model):
     update_at = models.DateTimeField(auto_now=True, verbose_name='Изменено')
     photo = models.ImageField(blank=True, upload_to='photo/%Y/%m')
     is_publish = models.BooleanField(default=True, verbose_name='Опубликовано')
-    category_id = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+    category_id = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
 
-    def __str__(self):
+    def __str__(self):  # in fields show as title, default as id
         return self.title
 
     class Meta:  # Admin interface
@@ -27,6 +27,9 @@ class News(models.Model):
 
 class Category(models.Model):
     title = models.CharField(max_length=160, db_index=True, verbose_name='Категория')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = 'Категрия'
