@@ -63,7 +63,11 @@
 - Add CORS
   - ```pip install djangorestframework django-cors-headers```
   - configure settings.py
-
+- Work with admin
+  - Add Meta class
+  - method for rename fields in admin
+  - add migration
+  - admin.py, apps.py, models.py
 
 ### Developer env
 - ```python .\manage.py runserver```

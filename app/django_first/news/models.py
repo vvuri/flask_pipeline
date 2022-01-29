@@ -8,12 +8,17 @@ class Movies(models.Model):
 
 
 class News(models.Model):
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=150, verbose_name='Заголовок')
     content = models.TextField(blank=False)
-    create_at = models.DateTimeField(auto_now_add=True)
-    update_at = models.DateTimeField(auto_now=True)
+    create_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
+    update_at = models.DateTimeField(auto_now=True, verbose_name='Изменено')
     photo = models.ImageField(blank=True, upload_to='photo/%Y/%m')
-    is_publish = models.BooleanField(default=True)
+    is_publish = models.BooleanField(default=True, verbose_name='Опубликовано')
 
     def __str__(self):
         return self.title
+
+    class Meta:  # Admin interface
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
+        ordering = ['-create_at']
