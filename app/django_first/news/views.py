@@ -14,5 +14,5 @@ def index(request):
 
 
 def movie(request):
-    render_page = render_to_string('news/movie_list.html')  #, context=data)
+    render_page = render_to_string('news/movie_list.html')  # , context=data)
     return HttpResponse(render_page)

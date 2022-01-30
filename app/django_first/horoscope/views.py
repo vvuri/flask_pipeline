@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 from django.template.loader import render_to_string
@@ -30,4 +29,3 @@ def zodiac_sign_by_number(request, sign: int):
     name_zodiac = text_page[sign-1]
     redirect_urls = reverse('horoscope-name', args=(name_zodiac, ))
     return HttpResponse(redirect_urls)  # HttpResponse(name_zodiac)
-

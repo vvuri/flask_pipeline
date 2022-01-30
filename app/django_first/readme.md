@@ -68,6 +68,7 @@
   - method for rename fields in admin
   - add migration
   - admin.py, apps.py, models.py
+- ```$  flake8 app/django_first --exclude app/django_first/frontend``` 
 
 ### Developer env
 - ```python .\manage.py runserver```
