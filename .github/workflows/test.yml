@@ -43,13 +43,14 @@ jobs:
           python-version: 3.8
 
       - name: Install Python dependencies
-        run: pip install black flake8
+        run: pip install flake8
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
+          flake8_dir: app/django_first/
           files: app/django_first/
-          black: true
+          black: false
           flake8: true
 
 #    strategy:
