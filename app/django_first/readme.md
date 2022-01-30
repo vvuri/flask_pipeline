@@ -68,7 +68,9 @@
   - method for rename fields in admin
   - add migration
   - admin.py, apps.py, models.py
-- ```$  flake8 app/django_first --exclude app/django_first/frontend``` 
+- ```$  flake8 app/django_first --exclude app/django_first/frontend```
+- Run test - unittest 
+  - ```$ python .\manage.py test .``` 
 
 ### Developer env
 - ```python .\manage.py runserver```
@@ -82,8 +84,11 @@
 
 ### Deploy on VDS
 - SSH connect 
-- sudo apt update
-- sudo apt install ...
+- ```git clone ...```
+- ```sudo apt update```
+- ```sudo apt install ... ```
+- ...
+- ```python manage.py collectstatic``` for create static from templates
 
 ### SSL
 - self-signed certificate
@@ -99,4 +104,19 @@
   - ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 - ```$ service nginx restart```
 
-
+### ToDo
+1. Django - all course I part
+   1. 14 + 
+   2. deploy
+2. PostgreSQL - install + connect
+3. Add Grafana and Prometheus to admin
+   1. metrics
+   2. UI add to admin
+4. Auth - some variant
+5. Add test - Unit, API, Selenium + add in GitHub CI
+6. Add React Frontend
+7. Terraform deployment 
+8. SSL by soft + vvuri.ru redirect
+9. Add telegram bot for connection
+10. Slides to UI module
+11. Add FastAPI module and nginx 
