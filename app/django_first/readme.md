@@ -107,8 +107,11 @@
 ### ToDo
 1. Django - all course I part
    1. 14 + 
-   2. deploy
+   2. part II
+   3. Bootstrap
 2. PostgreSQL - install + connect
+   1. dumpdate + loaddata for move data to server
+   2. add backup to crontab
 3. Add Grafana and Prometheus to admin
    1. metrics
    2. UI add to admin
