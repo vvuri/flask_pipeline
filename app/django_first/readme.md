@@ -71,6 +71,11 @@
 - ```$  flake8 app/django_first --exclude app/django_first/frontend```
 - Run test - unittest 
   - ```$ python .\manage.py test .``` 
+- Coverage
+  - ```$ pip install coverage```
+  - ```$ coverage run --source='.' ./manage.py test .```
+  - ```$ coverage report``` - in cli
+  - ```$ coverage html``` - as web page with show tested function
 
 ### Developer env
 - ```python .\manage.py runserver```
@@ -123,3 +128,4 @@
 9. Add telegram bot for connection
 10. Slides to UI module
 11. Add FastAPI module and nginx 
+12. CI/CD - [Run Django Tests with DB](https://blog.healthchecks.io/2020/11/using-github-actions-to-run-django-tests/)

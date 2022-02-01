@@ -1,8 +1,7 @@
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-
-from news.models import News
+# from news.models import News
 
 
 class NewsApiTestCase(APITestCase):
@@ -16,7 +15,8 @@ class NewsApiTestCase(APITestCase):
 
     def test_get(self):
         # category_1 = Category.objects.create(title='Test')
-        # news_1 = News.objects.create(title='Новость-тест-1', content='Содержание новости тест 1', category_id=category_1)
+        # news_1 = News.objects.create(title='Новость-тест-1', content='Содержание новости тест 1'
+        # , category_id=category_1)
         # news_2 = News.objects.create(title='Новость-тест-2', content='Содержание новости тест 2')
         # print(news_1, news_2)
         url = reverse('news-list')
