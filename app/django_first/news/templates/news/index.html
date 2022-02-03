@@ -39,9 +39,9 @@
   </div>
 </nav>
 
-
+<div class="container mt-3">
 {% for item in news %}
-<div class="card mt-3" style="width: 18rem;">
+<div class="card mb-3" style="width: 90%">
     {% if item.photo != "" %}
     <img src="{{item.photo}}" class="card-img-top" alt="{{item.photo}}">
     {% endif %}
@@ -57,7 +57,7 @@
     </div>
 </div>
 {% endfor %}
-
+</div>
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

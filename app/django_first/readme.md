@@ -76,6 +76,8 @@
   - ```$ coverage run --source='.' ./manage.py test .```
   - ```$ coverage report``` - in cli
   - ```$ coverage html``` - as web page with show tested function
+- [Lorem Ipsum](https://ru.lipsum.com/) - is simply dummy text 
+- 
 
 ### Developer env
 - ```python .\manage.py runserver```
