@@ -77,7 +77,7 @@
   - ```$ coverage report``` - in cli
   - ```$ coverage html``` - as web page with show tested function
 - [Lorem Ipsum](https://ru.lipsum.com/) - is simply dummy text 
-- 
+- [Bootstrap](https://getbootstrap.com/docs/5.1/components/navbar/) Navbar, Card
 
 ### Developer env
 - ```python .\manage.py runserver```

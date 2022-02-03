@@ -43,7 +43,7 @@
 {% for item in news %}
 <div class="card mb-3" style="width: 90%">
     {% if item.photo != "" %}
-    <img src="{{item.photo}}" class="card-img-top" alt="{{item.photo}}">
+    <img src="media/{{item.photo}}" class="card-img-top" style="height:10%;max-height:100px;width:10%;" alt="{{item.photo}}">
     {% endif %}
     <div class="card-body">
         <h5 class="card-title">{{ item.title }}</h5>
@@ -53,7 +53,10 @@
         <li class="list-group-item">Tags:...</li>
     </ul>
     <div class="card-body">
-        <a href="#" class="card-link">Подробнее...</a>
+        <div class="d-flex justify-content-between">
+            <div><a href="#" class="card-link">Подробнее...</a></div>
+            <div>{{ item.create_at | date:"d.m.Y" }}</div>
+        </div>
     </div>
 </div>
 {% endfor %}
