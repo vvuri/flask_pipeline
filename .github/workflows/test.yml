@@ -53,6 +53,11 @@ jobs:
           black: false
           flake8: true
 
+      - name: Run Tests
+        working-directory: ./app/django_first/
+        run: |
+            python manage.py test
+
 #    strategy:
 #      matrix:
 #        python-version: ["3.8", "3.9"]
