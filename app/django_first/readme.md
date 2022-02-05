@@ -77,6 +77,7 @@
   - ```$ coverage report``` - in cli
   - ```$ coverage html``` - as web page with show tested function
 - [Lorem Ipsum](https://ru.lipsum.com/) - is simply dummy text 
+- Lorem [photo](https://picsum.photos/)
 - [Bootstrap](https://getbootstrap.com/docs/5.1/components/navbar/) Navbar, Card
 
 ### Developer env
@@ -113,7 +114,7 @@
 
 ### ToDo
 1. Django - all course I part
-   1. 14 + 
+   1. 16 + 
    2. part II
    3. Bootstrap
 2. PostgreSQL - install + connect
@@ -131,3 +132,5 @@
 10. Slides to UI module
 11. Add FastAPI module and nginx 
 12. CI/CD - [Run Django Tests with DB](https://blog.healthchecks.io/2020/11/using-github-actions-to-run-django-tests/)
+13. GraphQL - [example](https://proglib.io/p/polnyy-fullstek-pishem-sayt-na-django-vue-i-graphql-2021-07-22)
+14. 
