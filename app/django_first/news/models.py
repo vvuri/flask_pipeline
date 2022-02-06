@@ -14,7 +14,7 @@ class News(models.Model):
     update_at = models.DateTimeField(auto_now=True, verbose_name='Изменено')
     photo = models.ImageField(blank=True, upload_to='photo/%Y/%m')
     is_publish = models.BooleanField(default=True, verbose_name='Опубликовано')
-    category_id = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')  # add _id
 
     def __str__(self):  # in fields show as title, default as id
         return self.title
