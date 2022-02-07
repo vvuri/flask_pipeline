@@ -1,0 +1,10 @@
+<ul class="nav nav-pills">
+<!--  <li class="nav-item">-->
+<!--    <a class="nav-link active" aria-current="page" href="#">All</a>-->
+<!--  </li>-->
+  {% for item in categories %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'news-category' item.pk %}">{{ item.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
