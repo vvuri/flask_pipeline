@@ -18,7 +18,7 @@
 {% include 'inc/_nav.html' %}
 
 <div class="container mt-3">
-    {% block sidebar %} {% endblock %}
+    {% block sidebar %} {% include 'inc/_sidebar.html' %} {% endblock %}
     {% block content %} {% endblock %}
 </div>
 
