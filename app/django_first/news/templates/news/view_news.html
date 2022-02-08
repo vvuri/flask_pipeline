@@ -1,32 +1,32 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ block.super }} :: {{ category.title }}{% endblock %}
+{% block title %}{{ block.super }} :: {{ news_item.title }}{% endblock %}
+
+{% block sidebar %}{% endblock %}
 
 {% block content %}
-{% for item in news %}
 <div class="card mb-3" style="width: 90%">
     <div class="media">
-        {% if item.photo %}
-            <img src="/news{{ item.photo.url }}" alt="{{item.photo.url}}" class="mr-3">
+        {% if news_item.photo %}
+            <img src="/news{{ news_item.photo.url }}" alt="{{news_item.photo.url}}" class="mr-3">
         {% else %}
             <img src="https://picsum.photos/1000/200/?grayscale" class="mr-3">
         {% endif %}
     </div>
     <div class="media-body">
         <div class="card-body">
-            <h5 class="card-title">{{ item.title }}</h5>
-            <p class="card-text">{{ item.content | truncatewords:100}}</p>
+            <h5 class="card-title">{{ news_item.title }}</h5>
+            <p class="card-text">{{ news_item.content }}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Tags:...</li>
         </ul>
         <div class="card-body">
             <div class="d-flex justify-content-between">
-                <div><a href="{{ item.get_absolute_url }}" class="card-link">Подробнее...</a></div>
-                <div>{{ item.create_at | date:"d.m.Y" }}</div>
+                <div></div>
+                <div>{{ news_item.create_at | date:"d.m.Y" }}</div>
             </div>
     </div>
     </div>
 </div>
-{% endfor %}
 {% endblock %}

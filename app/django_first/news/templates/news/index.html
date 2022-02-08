@@ -22,7 +22,7 @@
         </ul>
         <div class="card-body">
             <div class="d-flex justify-content-between">
-                <div><a href="#" class="card-link">Подробнее...</a></div>
+                <div><a href="{{ item.get_absolute_url }}" class="card-link">Подробнее...</a></div>
                 <div>{{ item.create_at | date:"d.m.Y" }}</div>
             </div>
     </div>

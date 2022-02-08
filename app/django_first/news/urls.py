@@ -7,7 +7,8 @@ urlpatterns = [
     path('', views.index, name='news-list'),
     # path('<int:sign>', views.movie_sign, name='movie-name')
     path('movies', views.movie),
-    path('category/<int:category_id>/', views.get_category, name='news-category')
+    path('category/<int:category_id>/', views.get_category, name='news-category'),
+    path('<int:news_id>/', views.view_news, name='view_news')
 ]
 
 if settings.DEBUG:
