@@ -7,15 +7,39 @@
 {% block content %}
 <div class="card mb-3" style="width: 90%">
     <h2>Добавление новости</h2>
-    <div class="media">
-        <img src="https://picsum.photos/1000/200/?grayscale" class="mr-3">
+<form>
+    {% csrf_token %}
+
+   {# form.as_p #}
+  {{ form.non_field.errors }}
+  <div class="form-floating mt-3">
+      {{ form.title }}
+      <label for="{{ form.title.id_for_label }}">Заголовок</label>
+    <div class="invalid-feedback">
+       {{ form.title.errors }}
     </div>
-    <div class="media-body mt-3">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <form action="{% url 'add-news'%}" method="post">
-            <button type="submit" class="btn btn-primary btn-block">Опубликовать</button>
-        </form>
+  </div>
+
+  <div class="form-floating mt-3">
+    {{ form.content }}
+    <label for="{{ form.content.id_for_label }}">Текст</label>
+    <div class="invalid-feedback">
+        {{ form.content.errors }}
     </div>
+  </div>
+
+  <div class="form-switch mt-3 px-1">
+    {{ form.category }}
+  </div>
+
+  <div class="form-switch mt-3">
+    {{ form.is_publish }}
+    <label class="form-check-label" for="{{ form.is_publish.id_for_label }}">Автоматически опубликовать новость</label>
+  </div>
+
+   <form action="{% url 'add-news'%}" method="post">
+       <button type="submit" class="btn btn-primary btn-block mt-3">Опубликовать</button>
+   </form>
+</form>
 </div>
 {% endblock %}

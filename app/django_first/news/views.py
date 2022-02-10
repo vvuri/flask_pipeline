@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_protect
 from .models import News, Category
 from .forms import NewsForm
+
 
 def index(request):
     news = News.objects.order_by('-create_at')
@@ -34,6 +36,7 @@ def view_news(request, news_id):
     return render(request, 'news/view_news.html', {'news_item': news_item})
 
 
+@csrf_protect
 def add_news(request):
     if request.method == 'POST':
         pass
