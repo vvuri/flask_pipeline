@@ -6,11 +6,11 @@
 
 {% block content %}
 <div class="card mb-3" style="width: 90%">
-    <h2>Добавление новости</h2>
-<form>
-    {% csrf_token %}
+<h2>Добавление новости</h2>
+<form action="{% url 'add-news'%}" method="post">
+   {% csrf_token %}
 
-   {# form.as_p #}
+  {# form.as_p #}
   {{ form.non_field.errors }}
   <div class="form-floating mt-3">
       {{ form.title }}
@@ -37,9 +37,8 @@
     <label class="form-check-label" for="{{ form.is_publish.id_for_label }}">Автоматически опубликовать новость</label>
   </div>
 
-   <form action="{% url 'add-news'%}" method="post">
-       <button type="submit" class="btn btn-primary btn-block mt-3">Опубликовать</button>
-   </form>
+
+   <button type="submit" class="btn btn-primary btn-block mt-3">Опубликовать</button>
 </form>
 </div>
 {% endblock %}
