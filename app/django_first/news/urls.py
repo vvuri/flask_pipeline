@@ -13,7 +13,10 @@ urlpatterns = [
     path('category/<int:category_id>/', views.NewsByCategory.as_view(), name='news-category'),
 
     path('movies', views.movie),
-    path('<int:news_id>/', views.view_news, name='view_news'),
+
+    # path('<int:news_id>/', views.view_news, name='view_news'),
+    path('<int:pk>/', views.ViewNews.as_view(), name='view_news'),
+
     path('add-news/', views.add_news, name='add-news')
 ]
 

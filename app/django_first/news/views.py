@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_protect
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import News, Category
 from .forms import NewsForm
 
@@ -61,10 +61,15 @@ def movie(request):
     return HttpResponse(render_page)
 
 
-def view_news(request, news_id):
-    # news_item = News.objects.get(pk=news_id)
-    news_item = get_object_or_404(News, pk=news_id)
-    return render(request, 'news/view_news.html', {'news_item': news_item})
+class ViewNews(DetailView):
+    model = News
+
+
+
+# def view_news(request, news_id):
+#     # news_item = News.objects.get(pk=news_id)
+#     news_item = get_object_or_404(News, pk=news_id)
+#     return render(request, 'news/view_news.html', {'news_item': news_item})
 
 
 @csrf_protect

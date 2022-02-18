@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ block.super }} :: {{ object.title }}{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block content %}
+<div class="card mb-3" style="width: 90%">
+    <div class="media">
+        {% if object.photo %}
+            <img src="/news{{ object.photo.url }}" alt="{{object.photo.url}}" class="mr-3">
+        {% else %}
+            <img src="https://picsum.photos/1000/200/?grayscale" class="mr-3">
+        {% endif %}
+    </div>
+    <div class="media-body">
+        <div class="card-body">
+            <h5 class="card-title">{{ object.title }}</h5>
+            <p class="card-text">{{ object.content }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Tags:...</li>
+        </ul>
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <div></div>
+                <div>{{ object.create_at | date:"d.m.Y" }}</div>
+            </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
