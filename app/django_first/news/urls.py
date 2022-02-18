@@ -4,7 +4,8 @@ from django.urls import path
 from news import views
 
 urlpatterns = [
-    path('', views.index, name='news-list'),
+    # path('', views.index, name='news-list'),
+    path('', views.HomeNews.as_view(), name='news-list'),
     # path('<int:sign>', views.movie_sign, name='movie-name')
     path('movies', views.movie),
     path('category/<int:category_id>/', views.get_category, name='news-category'),

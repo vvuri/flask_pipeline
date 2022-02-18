@@ -2,8 +2,24 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_protect
+from django.views.generic import ListView
 from .models import News, Category
 from .forms import NewsForm
+
+
+class HomeNews(ListView):
+    model = News
+    template_name = 'news/index.html'
+    context_object_name = 'news'
+    # extra_context = { 'title': 'Список новостей'}
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(HomeNews, self).get_context_data(**kwargs)
+        context['title'] = 'Список новостей'
+        return context
+
+    def get_queryset(self):
+        return News.objects.filter(is_publish=True)
 
 
 def index(request):
