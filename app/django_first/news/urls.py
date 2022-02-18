@@ -17,7 +17,8 @@ urlpatterns = [
     # path('<int:news_id>/', views.view_news, name='view_news'),
     path('<int:pk>/', views.ViewNews.as_view(), name='view_news'),
 
-    path('add-news/', views.add_news, name='add-news')
+    # path('add-news/', views.add_news, name='add-news')
+    path('add-news/', views.CreateNews.as_view(), name='add-news')
 ]
 
 if settings.DEBUG:
