@@ -79,6 +79,8 @@
 - [Lorem Ipsum](https://ru.lipsum.com/) - is simply dummy text 
 - Lorem [photo](https://picsum.photos/)
 - [Bootstrap](https://getbootstrap.com/docs/5.1/components/navbar/) Navbar, Card
+- Debug tool ```$ pip install django-debug-toolbar``` 
+- [Debug documentation Install](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
 
 ### Developer env
 - ```python .\manage.py runserver```
