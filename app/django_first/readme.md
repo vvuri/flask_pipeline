@@ -81,6 +81,7 @@
 - [Bootstrap](https://getbootstrap.com/docs/5.1/components/navbar/) Navbar, Card
 - Debug tool ```$ pip install django-debug-toolbar``` 
 - [Debug documentation Install](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
+- Color schema from https://materializecss.com/color.html - brown for admin 
 
 ### Developer env
 - ```python .\manage.py runserver```
